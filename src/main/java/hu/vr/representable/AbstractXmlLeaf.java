@@ -41,7 +41,7 @@ public abstract class AbstractXmlLeaf implements XmlRepresentable {
 	}
 
 	@Override
-	public final String acceptRenderer(RendererService renderer) {
+	public String acceptRenderer(RendererService renderer) {
 		return renderer.render(this);
 	}
 	

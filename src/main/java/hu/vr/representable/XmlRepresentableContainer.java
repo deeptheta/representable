@@ -1,5 +1,7 @@
 package hu.vr.representable;
 
-public interface XmlRepresentableContainer extends XmlRepresentable {
+import java.util.List;
 
+public interface XmlRepresentableContainer extends XmlRepresentable {
+	public List<XmlRepresentable> getChildren();
 }

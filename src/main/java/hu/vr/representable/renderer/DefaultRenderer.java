@@ -59,7 +59,7 @@ public class DefaultRenderer extends AbstractRenderer {
 			sb.append(' ');
 			sb.append(attributeEntry.getKey());
 			sb.append("=\"");
-			sb.append(attributeEntry.getValue().replaceAll("\"", "'"));
+			sb.append(attributeEntry.getValue());
 			sb.append("\"");
 		}
 		if(isCompactTag(xmlRepr)) {

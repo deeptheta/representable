@@ -3,8 +3,8 @@ package hu.vr.representable.testrepresentations;
 public class SimpleXmlTagWithContent extends SimpleXmlTag {
 
 	@Override
-	public String getContent() {
-		return "Lorem ipsum...";
+	protected String getRawContent() {
+		return "Lorem 5 < 6 ipsum...";
 	}
 	
 }

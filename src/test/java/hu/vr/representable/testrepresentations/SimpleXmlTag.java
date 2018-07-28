@@ -2,37 +2,39 @@ package hu.vr.representable.testrepresentations;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
-import hu.vr.representable.XmlRepresentable;
-import hu.vr.representable.renderer.RendererService;
+import hu.vr.representable.AbstractXmlLeaf;
 
-public class SimpleXmlTag implements XmlRepresentable {
+public class SimpleXmlTag extends AbstractXmlLeaf {
 	
 	private final Map<String, String> attributes = new HashMap<>();
 	
 	public SimpleXmlTag() {
-		attributes.put("a", "O'Reilly2018");
-		attributes.put("b", "\"between dblquotes\"");
+		attributes.put("play-doh", "O'Reilly2018");
+		attributes.put("quick'n'dirty", "try \"dblquotes\"");
 	}
 
 	@Override
-	public String getTagName() {
+	protected String getRawTagName() {
 		return "simpletag";
 	}
 
 	@Override
-	public Map<String, String> getAttributes() {
-		return attributes;
-	}
-
-	@Override
-	public String getContent() {
+	protected String getRawContent() {
 		return null;
 	}
 
 	@Override
-	public String acceptRenderer(RendererService renderer) {
-		return renderer.render(this);
+	protected Set<String> getRawAttributeKeys() {
+		return attributes.keySet();
 	}
+
+	@Override
+	protected String getRawAttribute(String key) {
+		return attributes.get(key);
+	}
+
+
 
 }

@@ -13,11 +13,12 @@ import hu.vr.representable.testrepresentations.SimpleXmlTag;
 import hu.vr.representable.testrepresentations.SimpleXmlTagWithContent;
 
 public class DefaultRendererTest {
+	
+	DefaultRenderer defRenderer = new DefaultRenderer();
 
 	@Test
     public void renderSimpleObject() {
         Object o = new Object();
-        DefaultRenderer defRenderer = new DefaultRenderer();
         String result = defRenderer.render(o);
         System.out.println("simple object :    " + result);
         
@@ -27,7 +28,6 @@ public class DefaultRendererTest {
 	@Test
     public void renderSimpleXml() {
         XmlRepresentable xmlRepr = new SimpleXmlTag();
-        DefaultRenderer defRenderer = new DefaultRenderer();
         String result = defRenderer.render(xmlRepr);
         System.out.println("simple xml    :    " + result);
 
@@ -40,7 +40,6 @@ public class DefaultRendererTest {
 	@Test
     public void renderSimpleXmlWithContent() {
         XmlRepresentable xmlRepr = new SimpleXmlTagWithContent();
-        DefaultRenderer defRenderer = new DefaultRenderer();
         String result = defRenderer.render(xmlRepr);
         System.out.println("simple xml+txt:    " + result);
 
@@ -53,7 +52,6 @@ public class DefaultRendererTest {
 	@Test
     public void renderSimpleTextLeaf() {
         XmlRepresentable xmlRepr = new SimpleTextLeaf();
-        DefaultRenderer defRenderer = new DefaultRenderer();
         String result = defRenderer.render(xmlRepr);
         System.out.println("simple txtLeaf:    " + result);
 
@@ -63,7 +61,6 @@ public class DefaultRendererTest {
 	@Test
     public void renderCompositeTag() {
         XmlRepresentableContainer xmlReprCont = new CompositeXmlTag();
-        DefaultRenderer defRenderer = new DefaultRenderer();
         String result = defRenderer.render(xmlReprCont);
         System.out.println("composite tag :    " + result);
 
@@ -76,7 +73,6 @@ public class DefaultRendererTest {
 	@Test
     public void renderCompositeDeep() {
         XmlRepresentableContainer xmlReprCont = new CompositeXmlDeep();
-        DefaultRenderer defRenderer = new DefaultRenderer();
         String result = defRenderer.render(xmlReprCont);
         System.out.println("deep composite:    " + result);
 

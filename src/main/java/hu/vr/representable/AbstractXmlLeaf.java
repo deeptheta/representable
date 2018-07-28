@@ -13,11 +13,12 @@ public abstract class AbstractXmlLeaf implements XmlRepresentable {
 	private final Map<String, String> unmodAttributes = Collections.unmodifiableMap(attributes);
 
 	@Override
-	public final String getTagName() {
+	public final AnyTag getTag() {
 		if(getRawTagName()==null) {
 			return null;
 		}
-		return getRawTagName().replaceAll("[^a-zA-Z0-9_:.]","").replaceFirst("^[^a-zA-Z_:]", "");
+		String result = getRawTagName().replaceAll("[^a-zA-Z0-9_:.]","").replaceFirst("^[^a-zA-Z_:]", "");
+		return AnyTag.Domain.tagName(result);
 	}
 
 	@Override

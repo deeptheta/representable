@@ -24,7 +24,9 @@ public class DefaultRenderer extends AbstractRenderer {
 		if(xmlRepr==null) {
 			return ""; 
 		}
-		else if(xmlRepr.getTagName()==null || xmlRepr.getTagName().isEmpty()) {
+		else if(xmlRepr.getTag()==null
+				|| xmlRepr.getTag().toString()==null
+				|| xmlRepr.getTag().toString().isEmpty()) {
 			return renderContentOnly(xmlRepr);
 		}
 		else {
@@ -37,7 +39,9 @@ public class DefaultRenderer extends AbstractRenderer {
 		if(xmlReprCont==null) {
 			return ""; 
 		}
-		else if(xmlReprCont.getTagName()==null || xmlReprCont.getTagName().isEmpty()) {
+		else if(xmlReprCont.getTag()==null 
+				|| xmlReprCont.getTag().toString()==null
+				|| xmlReprCont.getTag().toString().isEmpty()) {
 			return renderContentOnly(xmlReprCont);
 		}
 		else {
@@ -94,13 +98,13 @@ public class DefaultRenderer extends AbstractRenderer {
 	
 	protected void appendClosingTag(StringBuilder sb, XmlRepresentable xmlRepr) {
 		sb.append("</");
-		sb.append(xmlRepr.getTagName());
+		sb.append(xmlRepr.getTag());
 		sb.append('>');
 	}
 	
 	private void appendBeginningOfOpeningTag(StringBuilder sb, XmlRepresentable xmlRepr) {
 		sb.append('<');
-		sb.append(xmlRepr.getTagName());
+		sb.append(xmlRepr.getTag());
 		if(xmlRepr.getAttributes()!=null) {
 			for(Entry<String, String> attributeEntry : xmlRepr.getAttributes().entrySet()) {
 				sb.append(' ');

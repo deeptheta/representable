@@ -1,8 +1,8 @@
-package hu.vr.representable.tag;
+package hu.vr.representable.html.tags;
 
 public interface HtmlContainerTag extends HtmlLeafTag {
 	/* marker interface */
-	public enum Enum implements HtmlContainerTag{
+	public enum Domain implements HtmlContainerTag{
 		div,
 		p,
 		a

@@ -9,20 +9,16 @@ import hu.vr.representable.renderer.RendererService;
 
 public abstract class AbstractXmlLeaf implements XmlRepresentable {
 	
-	private final Map<String, String> attributes = new HashMap<>();
-	private final Map<String, String> unmodAttributes = Collections.unmodifiableMap(attributes);
+	private final Map<AnyAttribute, String> attributes = new HashMap<>();
+	private final Map<AnyAttribute, String> unmodAttributes = Collections.unmodifiableMap(attributes);
 
 	@Override
 	public final AnyTag getTag() {
-		if(getRawTagName()==null) {
-			return null;
-		}
-		String result = getRawTagName().replaceAll("[^a-zA-Z0-9_:.]","").replaceFirst("^[^a-zA-Z_:]", "");
-		return AnyTag.Domain.tagName(result);
+		return AnyTag.Domain.tagName(getRawTagName());
 	}
 
 	@Override
-	public final Map<String, String> getAttributes() {
+	public final Map<AnyAttribute, String> getAttributes() {
 		attributes.clear();
 		if(getRawAttributeKeys()==null) {
 			return unmodAttributes;
@@ -47,9 +43,9 @@ public abstract class AbstractXmlLeaf implements XmlRepresentable {
 	}
 	
 	private final void setAttributeFormatted(String rawKey, String rawValue) {
-		String key = rawKey==null ? null : rawKey.replaceAll("[^a-zA-Z0-9_:.]","").replaceFirst("^[^a-zA-Z_:]", "");
-		String value = rawValue==null ? null : rawValue.replaceAll("\"", "'");
-		attributes.put(key, value);
+		AnyAttribute keyAttribute = AnyAttribute.Domain.attrName(rawKey);
+		String formattedValue = rawValue==null ? null : rawValue.replaceAll("\"", "'");
+		attributes.put(keyAttribute, formattedValue);
 	}
 	
 	protected abstract String getRawTagName();

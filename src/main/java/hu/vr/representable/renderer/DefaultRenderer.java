@@ -2,6 +2,7 @@ package hu.vr.representable.renderer;
 
 import java.util.Map.Entry;
 
+import hu.vr.representable.AnyAttribute;
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.XmlRepresentableContainer;
 
@@ -106,7 +107,7 @@ public class DefaultRenderer extends AbstractRenderer {
 		sb.append('<');
 		sb.append(xmlRepr.getTag());
 		if(xmlRepr.getAttributes()!=null) {
-			for(Entry<String, String> attributeEntry : xmlRepr.getAttributes().entrySet()) {
+			for(Entry<AnyAttribute, String> attributeEntry : xmlRepr.getAttributes().entrySet()) {
 				sb.append(' ');
 				sb.append(attributeEntry.getKey());
 				sb.append("=\"");

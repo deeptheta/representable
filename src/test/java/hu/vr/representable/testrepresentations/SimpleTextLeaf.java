@@ -1,29 +1,32 @@
 package hu.vr.representable.testrepresentations;
 
-import java.util.Set;
+import java.util.Map;
 
 import hu.vr.representable.AbstractXmlLeaf;
+import hu.vr.representable.Attribute;
+import hu.vr.representable.AttributeValue;
+import hu.vr.representable.Tag;
+import hu.vr.representable.TextContent;
 
 public class SimpleTextLeaf extends AbstractXmlLeaf {
 
 	@Override
-	protected String getRawTagName() {
+	public Tag getTag() {
 		return null;
 	}
 
 	@Override
-	protected String getRawContent() {
-		return "just some text...";
-	}
-
-	@Override
-	protected Set<String> getRawAttributeKeys() {
+	public Map<? extends Attribute, AttributeValue> getAttributes() {
 		return null;
 	}
 
 	@Override
-	protected String getRawAttribute(String key) {
-		return null;
+	public TextContent getContent() {
+		return TextContent.Domain.text("just some text...");
 	}
+
+	
+
+	
 
 }

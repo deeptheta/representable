@@ -1,7 +1,7 @@
 package hu.vr.representable;
 
-public interface AnyTag {
-	public static final class Domain implements AnyTag{
+public interface Tag {
+	public static final class Domain implements Tag{
 		private final String tagName;
 		private Domain(String tagName){
 			this.tagName = tagName;

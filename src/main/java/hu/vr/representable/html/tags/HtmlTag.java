@@ -2,11 +2,11 @@ package hu.vr.representable.html.tags;
 
 import hu.vr.representable.Tag;
 
-public interface HtmlContainerTag extends HtmlTag {
-	public enum Domain implements HtmlContainerTag{
-		div,
-		p,
-		a;
+public interface HtmlTag extends Tag {
+	public enum Domain implements HtmlTag{
+		img,
+		br,
+		hr;
 		
 		public static final Domain tagName(String tagName) {
 			if(tagName==null) {

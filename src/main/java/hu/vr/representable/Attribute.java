@@ -1,7 +1,7 @@
 package hu.vr.representable;
 
-public interface AnyAttribute {
-	public static final class Domain implements AnyAttribute{
+public interface Attribute {
+	public static final class Domain implements Attribute{
 		private final String attrName;
 		private Domain(String attrName){
 			this.attrName = attrName;

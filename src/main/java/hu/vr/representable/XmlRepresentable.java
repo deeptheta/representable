@@ -4,9 +4,9 @@ import java.util.Map;
 
 import hu.vr.representable.renderer.RendererService;
 
-public interface XmlRepresentable {
-	public AnyTag getTag();
-    public Map<AnyAttribute, String> getAttributes();
-    public String getContent();
+public interface XmlRepresentable<T extends Tag, A extends Attribute> {
+	public T getTag();
+    public Map<? extends A, AttributeValue> getAttributes();
+    public TextContent getContent();
     public String acceptRenderer(RendererService renderer);
 }

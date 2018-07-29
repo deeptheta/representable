@@ -1,10 +1,12 @@
 package hu.vr.representable.testrepresentations;
 
+import hu.vr.representable.TextContent;
+
 public class SimpleXmlTagWithContent extends SimpleXmlTag {
 
 	@Override
-	protected String getRawContent() {
-		return "Lorem 5 < 6 ipsum...";
+	public TextContent getContent() {
+		return TextContent.Domain.text("Lorem 5 < 6 ipsum...");
 	}
 	
 }

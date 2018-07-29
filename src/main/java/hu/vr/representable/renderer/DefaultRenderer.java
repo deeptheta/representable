@@ -2,7 +2,9 @@ package hu.vr.representable.renderer;
 
 import java.util.Map.Entry;
 
-import hu.vr.representable.AnyAttribute;
+import hu.vr.representable.Attribute;
+import hu.vr.representable.AttributeValue;
+import hu.vr.representable.Tag;
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.XmlRepresentableContainer;
 
@@ -21,7 +23,7 @@ public class DefaultRenderer extends AbstractRenderer {
 	}
 	
 	@Override
-	public String render(XmlRepresentable xmlRepr) {
+	public String render(XmlRepresentable<? extends Tag, ? extends Attribute> xmlRepr) {
 		if(xmlRepr==null) {
 			return ""; 
 		}
@@ -36,7 +38,7 @@ public class DefaultRenderer extends AbstractRenderer {
 	}
 	
 	@Override
-	public String render(XmlRepresentableContainer xmlReprCont) {
+	public String render(XmlRepresentableContainer<? extends Tag, ? extends Attribute> xmlReprCont) {
 		if(xmlReprCont==null) {
 			return ""; 
 		}
@@ -50,11 +52,11 @@ public class DefaultRenderer extends AbstractRenderer {
 		}
 	}
 	
-	protected String renderContentOnly(XmlRepresentable xmlRepr) {
-		return xmlRepr.getContent()==null ? "" : xmlRepr.getContent();
+	protected String renderContentOnly(XmlRepresentable<? extends Tag, ? extends Attribute> xmlRepr) {
+		return xmlRepr.getContent()==null ? "" : xmlRepr.getContent().toString();
 	}
 	
-	protected String renderTag(XmlRepresentable xmlRepr) {		
+	protected String renderTag(XmlRepresentable<? extends Tag, ? extends Attribute> xmlRepr) {		
 		StringBuilder sb = new StringBuilder();
 		appendOpeningTag(sb, xmlRepr);
 		if(!isCompactTag(xmlRepr)) {
@@ -64,12 +66,12 @@ public class DefaultRenderer extends AbstractRenderer {
 		return sb.toString();
 	}
 	
-	protected String renderTag(XmlRepresentableContainer xmlReprCont) {		
+	protected String renderTag(XmlRepresentableContainer<? extends Tag, ? extends Attribute> xmlReprCont) {		
 		StringBuilder sb = new StringBuilder();
 		appendOpeningTag(sb, xmlReprCont);
 		if(!isCompactTag(xmlReprCont)) {
 			sb.append(renderContentOnly(xmlReprCont));
-			for(XmlRepresentable child : xmlReprCont.getChildren()) {
+			for(XmlRepresentable<? extends Tag, ? extends Attribute> child : xmlReprCont.getChildren()) {
 				sb.append(child.acceptRenderer(this));
 			}
 			appendClosingTag(sb, xmlReprCont);
@@ -77,7 +79,7 @@ public class DefaultRenderer extends AbstractRenderer {
 		return sb.toString();
 	}
 	
-	protected void appendOpeningTag(StringBuilder sb, XmlRepresentable xmlRepr) {
+	protected void appendOpeningTag(StringBuilder sb, XmlRepresentable<? extends Tag, ? extends Attribute> xmlRepr) {
 		appendBeginningOfOpeningTag(sb, xmlRepr);
 		if(isCompactTag(xmlRepr)) {
 			sb.append("/>");
@@ -87,7 +89,7 @@ public class DefaultRenderer extends AbstractRenderer {
 		}
 	}
 	
-	protected void appendOpeningTag(StringBuilder sb, XmlRepresentableContainer xmlRepr) {
+	protected void appendOpeningTag(StringBuilder sb, XmlRepresentableContainer<? extends Tag, ? extends Attribute> xmlRepr) {
 		appendBeginningOfOpeningTag(sb, xmlRepr);
 		if(isCompactTag(xmlRepr)) {
 			sb.append("/>");
@@ -97,17 +99,17 @@ public class DefaultRenderer extends AbstractRenderer {
 		}
 	}
 	
-	protected void appendClosingTag(StringBuilder sb, XmlRepresentable xmlRepr) {
+	protected void appendClosingTag(StringBuilder sb, XmlRepresentable<? extends Tag, ? extends Attribute> xmlRepr) {
 		sb.append("</");
 		sb.append(xmlRepr.getTag());
 		sb.append('>');
 	}
 	
-	private void appendBeginningOfOpeningTag(StringBuilder sb, XmlRepresentable xmlRepr) {
+	private void appendBeginningOfOpeningTag(StringBuilder sb, XmlRepresentable<? extends Tag, ? extends Attribute> xmlRepr) {
 		sb.append('<');
 		sb.append(xmlRepr.getTag());
 		if(xmlRepr.getAttributes()!=null) {
-			for(Entry<AnyAttribute, String> attributeEntry : xmlRepr.getAttributes().entrySet()) {
+			for(Entry<? extends Attribute, AttributeValue> attributeEntry : xmlRepr.getAttributes().entrySet()) {
 				sb.append(' ');
 				sb.append(attributeEntry.getKey());
 				sb.append("=\"");
@@ -117,11 +119,11 @@ public class DefaultRenderer extends AbstractRenderer {
 		}
 	}
 
-	private boolean isCompactTag(XmlRepresentable xmlRepr) {
+	private boolean isCompactTag(XmlRepresentable<? extends Tag, ? extends Attribute> xmlRepr) {
 		return xmlRepr.getContent()==null;
 	}
 	
-	private boolean isCompactTag(XmlRepresentableContainer xmlReprCont) {
+	private boolean isCompactTag(XmlRepresentableContainer<? extends Tag, ? extends Attribute> xmlReprCont) {
 		return xmlReprCont.getContent()==null 
 				&& (xmlReprCont.getChildren()==null || xmlReprCont.getChildren().isEmpty());
 	}

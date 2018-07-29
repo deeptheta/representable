@@ -4,8 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import hu.vr.representable.XmlRepresentable;
-import hu.vr.representable.XmlRepresentableContainer;
+import hu.vr.representable.AbstractXmlContainer;
+import hu.vr.representable.AbstractXmlLeaf;
 import hu.vr.representable.testrepresentations.CompositeXmlDeep;
 import hu.vr.representable.testrepresentations.CompositeXmlTag;
 import hu.vr.representable.testrepresentations.SimpleTextLeaf;
@@ -27,7 +27,7 @@ public class DefaultRendererTest {
     
 	@Test
     public void renderSimpleXml() {
-        XmlRepresentable xmlRepr = new SimpleXmlTag();
+        AbstractXmlLeaf xmlRepr = new SimpleXmlTag();
         String result = defRenderer.render(xmlRepr);
         System.out.println("simple xml    :    " + result);
 
@@ -39,7 +39,7 @@ public class DefaultRendererTest {
     
 	@Test
     public void renderSimpleXmlWithContent() {
-        XmlRepresentable xmlRepr = new SimpleXmlTagWithContent();
+		AbstractXmlLeaf xmlRepr = new SimpleXmlTagWithContent();
         String result = defRenderer.render(xmlRepr);
         System.out.println("simple xml+txt:    " + result);
 
@@ -51,7 +51,7 @@ public class DefaultRendererTest {
     
 	@Test
     public void renderSimpleTextLeaf() {
-        XmlRepresentable xmlRepr = new SimpleTextLeaf();
+		AbstractXmlLeaf xmlRepr = new SimpleTextLeaf();
         String result = defRenderer.render(xmlRepr);
         System.out.println("simple txtLeaf:    " + result);
 
@@ -60,7 +60,7 @@ public class DefaultRendererTest {
     
 	@Test
     public void renderCompositeTag() {
-        XmlRepresentableContainer xmlReprCont = new CompositeXmlTag();
+		AbstractXmlContainer xmlReprCont = new CompositeXmlTag();
         String result = defRenderer.render(xmlReprCont);
         System.out.println("composite tag :    " + result);
 
@@ -72,7 +72,7 @@ public class DefaultRendererTest {
     
 	@Test
     public void renderCompositeDeep() {
-        XmlRepresentableContainer xmlReprCont = new CompositeXmlDeep();
+		AbstractXmlContainer xmlReprCont = new CompositeXmlDeep();
         String result = defRenderer.render(xmlReprCont);
         System.out.println("deep composite:    " + result);
 

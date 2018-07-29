@@ -1,12 +1,12 @@
-package hu.vr.representable.testrepresentations;
+package hu.vr.representable.testrepresentables;
 
 import java.util.Map;
 
 import hu.vr.representable.AbstractXmlLeaf;
-import hu.vr.representable.Attribute;
-import hu.vr.representable.AttributeValue;
-import hu.vr.representable.Tag;
-import hu.vr.representable.TextContent;
+import hu.vr.representable.taxonomy.Attribute;
+import hu.vr.representable.taxonomy.AttributeValue;
+import hu.vr.representable.taxonomy.Tag;
+import hu.vr.representable.taxonomy.TextContent;
 
 public class SimpleTextLeaf extends AbstractXmlLeaf {
 
@@ -22,7 +22,7 @@ public class SimpleTextLeaf extends AbstractXmlLeaf {
 
 	@Override
 	public TextContent getContent() {
-		return TextContent.Domain.text("just some text...");
+		return TextContent.text("just some text...");
 	}
 
 	

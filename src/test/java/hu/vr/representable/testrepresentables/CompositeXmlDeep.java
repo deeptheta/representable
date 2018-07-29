@@ -1,4 +1,4 @@
-package hu.vr.representable.testrepresentations;
+package hu.vr.representable.testrepresentables;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,11 +8,11 @@ import java.util.Map.Entry;
 
 import hu.vr.representable.AbstractXmlContainer;
 import hu.vr.representable.AbstractXmlLeaf;
-import hu.vr.representable.Attribute;
-import hu.vr.representable.AttributeValue;
-import hu.vr.representable.Tag;
-import hu.vr.representable.TextContent;
 import hu.vr.representable.XmlRepresentable;
+import hu.vr.representable.taxonomy.Attribute;
+import hu.vr.representable.taxonomy.AttributeValue;
+import hu.vr.representable.taxonomy.Tag;
+import hu.vr.representable.taxonomy.TextContent;
 
 public class CompositeXmlDeep extends AbstractXmlContainer {
 	
@@ -38,15 +38,17 @@ public class CompositeXmlDeep extends AbstractXmlContainer {
 
 	@Override
 	public Tag getTag() {
-		return Tag.Domain.tagName("deeptag");
+		return Tag.tagName("deeptag");
 	}
 
 	@Override
 	public Map<? extends Attribute, AttributeValue> getAttributes() {
 		Map<Attribute, AttributeValue> result = new HashMap<>();
 		for(Entry<String, String> entry : attributes.entrySet()) {
-			result.put(Attribute.Domain.attrName(entry.getKey()),
-					AttributeValue.Domain.attrValue(entry.getValue()));
+			Attribute a = Attribute.attrName(entry.getKey());
+			if(a!=null) {
+				result.put(a, AttributeValue.attrValue(entry.getValue()));
+			}
 		}
 		return result;
 	}

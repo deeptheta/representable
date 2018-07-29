@@ -1,8 +1,10 @@
 package hu.vr.representable.html;
 
-import hu.vr.representable.XmlRepresentable;
+import hu.vr.representable.XmlRepresentableContainer;
 import hu.vr.representable.renderer.RendererService;
 import hu.vr.representable.taxonomy.html.attributes.HtmlAttribute;
+import hu.vr.representable.taxonomy.html.attributes.HtmlContainerAttribute;
+import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;
 import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
 /**
@@ -10,7 +12,7 @@ import hu.vr.representable.taxonomy.html.tags.HtmlTag;
  * @author Viktor Remeli
  *
  */
-public abstract class AbstractHtmlLeaf implements XmlRepresentable<HtmlTag, HtmlAttribute> {
+public abstract class AbstractHtmlContainer implements XmlRepresentableContainer<HtmlContainerTag, HtmlContainerAttribute, HtmlTag, HtmlAttribute> {
 	@Override
 	public String acceptRenderer(RendererService renderer) {
 		return renderer.render(this);

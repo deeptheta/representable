@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import hu.vr.representable.Attribute;
-import hu.vr.representable.Tag;
 import hu.vr.representable.XmlRepresentable;
+import hu.vr.representable.taxonomy.Attribute;
+import hu.vr.representable.taxonomy.Tag;
 
 public abstract class AbstractRenderer implements RendererService {
 	

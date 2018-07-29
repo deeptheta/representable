@@ -6,11 +6,19 @@ import org.junit.Test;
 
 import hu.vr.representable.AbstractXmlContainer;
 import hu.vr.representable.AbstractXmlLeaf;
-import hu.vr.representable.testrepresentations.CompositeXmlDeep;
-import hu.vr.representable.testrepresentations.CompositeXmlTag;
-import hu.vr.representable.testrepresentations.SimpleTextLeaf;
-import hu.vr.representable.testrepresentations.SimpleXmlTag;
-import hu.vr.representable.testrepresentations.SimpleXmlTagWithContent;
+import hu.vr.representable.html.AbstractHtmlContainer;
+import hu.vr.representable.html.AbstractHtmlLeaf;
+import hu.vr.representable.html.elements.Input;
+import hu.vr.representable.testrepresentables.CompositeHtmlDeep;
+import hu.vr.representable.testrepresentables.CompositeHtmlTag;
+import hu.vr.representable.testrepresentables.CompositeXmlDeep;
+import hu.vr.representable.testrepresentables.CompositeXmlTag;
+import hu.vr.representable.testrepresentables.InputField;
+import hu.vr.representable.testrepresentables.SimpleHtmlTag;
+import hu.vr.representable.testrepresentables.SimpleHtmlText;
+import hu.vr.representable.testrepresentables.SimpleTextLeaf;
+import hu.vr.representable.testrepresentables.SimpleXmlTag;
+import hu.vr.representable.testrepresentables.SimpleXmlTagWithContent;
 
 public class DefaultRendererTest {
 	
@@ -84,6 +92,55 @@ public class DefaultRendererTest {
         assertTrue( result.substring(204, 257).contains(" playdoh=\"O'Reilly2018\"") );
         assertTrue( result.substring(204, 257).contains(" quickndirty=\"try 'dblquotes'\"") );
         assertTrue( result.endsWith("/>just some text...</complextag>just some text...</deeptag>") );
+    }
+	
+	@Test
+    public void renderSimpleHtmlText() {
+		AbstractHtmlLeaf htmlRepr = new SimpleHtmlText();
+        String result = defRenderer.render(htmlRepr);
+        System.out.println("simple htmlTxt:    " + result);
+
+        assertTrue( "Random html text...".equals(result) );
+    }
+
+	@Test
+    public void renderSimpleHtmlTag() {
+		AbstractHtmlLeaf htmlRepr = new SimpleHtmlTag();
+        String result = defRenderer.render(htmlRepr);
+        System.out.println("simple htmlTag:    " + result);
+
+        assertTrue( "<div id=\"simple001\"/>".equals(result) );
+    }
+	
+	@Test
+    public void renderCompositeHtmlTag() {
+		AbstractHtmlContainer htmlRepr = new CompositeHtmlTag();
+        String result = defRenderer.render(htmlRepr);
+        System.out.println("html composite:    " + result);
+
+        assertTrue( "<div>Inside of a composite html...<div id=\"simple001\"/>Random html text...</div>"
+        		.equals(result) );
+    }
+
+	@Test
+    public void renderCompositeHtmlDeep() {
+		AbstractHtmlContainer htmlRepr = new CompositeHtmlDeep();
+        String result = defRenderer.render(htmlRepr);
+        System.out.println("html deep     :    " + result);
+
+        assertTrue( ("<div height=\"3\">Deep element starts...<div id=\"simple001\"/>Random html text..."
+        		+ "<div>Inside of a composite html...<div id=\"simple001\"/>Random html text...</div>"
+        		+ "Random html text...</div>")
+        		.equals(result) );
+    }
+	
+	@Test
+    public void renderInputField() {
+		Input inputField = new InputField();
+        String result = defRenderer.render(inputField);
+        System.out.println("input field   :    " + result);
+
+        assertTrue( "<input type=\"text\"/>".equals(result) );
     }
     
 }

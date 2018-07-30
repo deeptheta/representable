@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.user.model.Collateral;
 import org.user.model.DirectlySecuredLoan;
 
 import hu.vr.representable.XmlRepresentable;
@@ -27,17 +28,24 @@ import hu.vr.representable.taxonomy.html.tags.HtmlTag;
  * @author Viktor Remeli
  *
  */
-public class DSLComposed extends AbstractHtmlContainer implements DSLRepresentation {
+public class DSLFull extends AbstractHtmlContainer implements DSLRepresentation {
 	
 	private final DirectlySecuredLoan dsl;
-	private final List<XmlRepresentable<? extends HtmlTag, ? extends HtmlAttribute>> children = new ArrayList<>();
 	Map<HtmlContainerAttribute, AttributeValue> attributes = new HashMap<>();
-	
-	public DSLComposed(DirectlySecuredLoan dsl) {
+	private final List<XmlRepresentable<? extends HtmlTag, ? extends HtmlAttribute>> children = new ArrayList<>();
+		
+	public DSLFull(DirectlySecuredLoan dsl) {
 		super();
 		this.dsl = dsl;
-		children.add(new DSLDetails(this.dsl));
-		this.setStyle("background-color:lightblue;");
+		children.add(new DSLDetailsSheet(this.dsl));
+		
+		if(dsl!=null && dsl.getCollaterals()!=null) {
+			for(Collateral coll : dsl.getCollaterals()) {
+				children.add(new CollateralAssetSheet(coll));
+			}
+		}
+		
+		this.setStyle("background-color: lightblue; width: 500px; margin: 20px;");
 	}
 	
 	public void setStyle(String styleCss) {

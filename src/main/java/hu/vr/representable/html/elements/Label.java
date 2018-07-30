@@ -1,13 +1,12 @@
-package org.user.elements;
+package hu.vr.representable.html.elements;
 
-import hu.vr.representable.html.elements.TextElement;
 import hu.vr.representable.taxonomy.TextContent;
 
-public class Text extends TextElement {
+public class Label extends TextElement {
 
 	private final String text;
 	
-	public Text(String text) {
+	public Label(String text) {
 		super();
 		this.text = text;
 	}

@@ -9,10 +9,10 @@ public class CollateralManagement {
 	public static final Asset ASSET02 = new Asset("848 - 848 - 4.3. Gold", "RON", 0.0, 0.75);
 	public static final Asset ASSET03 = new Asset("848 - 848 - 4.3. Gold", "RON", 4111367.78, 0.75);
 	
-	public static final Collateral COLLATERAL01 = new Collateral("20170223BCR_01_", ASSET01, "RON", 5.0);
-	public static final Collateral COLLATERAL02 = new Collateral("20170223BCR_02_", ASSET02, "RON", 0.0);
-	public static final Collateral COLLATERAL03 = new Collateral("20170425BCR_03_", ASSET03, "RON", 0.0);
-	public static final Collateral COLLATERAL04 = new Collateral("20170223BCR_04_", ASSET03, "RON", 2118.0);
+	public static final Collateral COLLATERAL01 = new Collateral("20170223BCR_01", ASSET01, "RON", 5.0);
+	public static final Collateral COLLATERAL02 = new Collateral("20170223BCR_02", ASSET02, "RON", 0.0);
+	public static final Collateral COLLATERAL03 = new Collateral("20170425BCR_03", ASSET03, "RON", 0.0);
+	public static final Collateral COLLATERAL04 = new Collateral("20170223BCR_04", ASSET03, "RON", 2118.0);
 	
 	public static final DirectlySecuredLoan DSL01 = new DirectlySecuredLoan("1056201613067", "Romania_BCR___000074169", "RON");
 	public static final DirectlySecuredLoan DSL02 = new DirectlySecuredLoan(null, "Romania_BCR___000092343", "EUR");

@@ -9,11 +9,11 @@ import hu.vr.representable.AbstractXmlLeaf;
 import hu.vr.representable.html.AbstractHtmlContainer;
 import hu.vr.representable.html.AbstractHtmlLeaf;
 import hu.vr.representable.html.elements.InputElement;
+import hu.vr.representable.html.elements.InputField;
 import hu.vr.representable.testrepresentables.CompositeHtmlDeep;
 import hu.vr.representable.testrepresentables.CompositeHtmlTag;
 import hu.vr.representable.testrepresentables.CompositeXmlDeep;
 import hu.vr.representable.testrepresentables.CompositeXmlTag;
-import hu.vr.representable.testrepresentables.InputField;
 import hu.vr.representable.testrepresentables.SimpleHtmlTag;
 import hu.vr.representable.testrepresentables.SimpleHtmlText;
 import hu.vr.representable.testrepresentables.SimpleTextLeaf;
@@ -136,7 +136,7 @@ public class DefaultRendererTest {
 	
 	@Test
     public void renderInputField() {
-		InputElement inputField = new InputField();
+		InputElement inputField = new InputField(null);
         String result = defRenderer.render(inputField);
         System.out.println("input field   :    " + result);
 

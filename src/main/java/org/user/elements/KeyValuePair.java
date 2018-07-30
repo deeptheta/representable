@@ -6,6 +6,7 @@ import java.util.Map;
 
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.html.elements.RecordElement;
+import hu.vr.representable.html.elements.Label;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.html.attributes.HtmlAttribute;
 import hu.vr.representable.taxonomy.html.attributes.HtmlContainerAttribute;
@@ -17,8 +18,8 @@ public class KeyValuePair extends RecordElement {
 	
 	public KeyValuePair(String key, String value) {
 		super();
-		this.children.add(new Text(key));
-		this.children.add(new Text(value));
+		this.children.add(new Label(key));
+		this.children.add(new Label(value));
 	}
 
 	@Override

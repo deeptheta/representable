@@ -7,13 +7,15 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
-import org.user.elements.DSLComposed;
+import org.user.elements.DSLFull;
 import org.user.elements.DSLRepresentation;
-import org.user.elements.Text;
+import org.user.elements.DSLShallow;
+import org.user.elements.SummaryPage;
 import org.user.system.CollateralManagement;
 
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.html.AbstractHtmlContainer;
+import hu.vr.representable.html.elements.Label;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.TextContent;
 import hu.vr.representable.taxonomy.html.attributes.HtmlAttribute;
@@ -43,7 +45,7 @@ public class AdvancedRendererTest {
 			@Override
 			public List<XmlRepresentable<? extends HtmlTag, ? extends HtmlAttribute>> getChildren() {
 				List<XmlRepresentable<? extends HtmlTag, ? extends HtmlAttribute>> children = new ArrayList<>();
-				children.add(new Text("</br>or here"));
+				children.add(new Label("</br>or here"));
 				return children;
 			}
 		};
@@ -54,10 +56,10 @@ public class AdvancedRendererTest {
     }
 	
 	@Test
-    public void renderDSLSimple() {
-        DSLRepresentation dsl = new DSLComposed(CollateralManagement.DSL01);
+    public void renderDSLShallow() {
+        DSLRepresentation dsl = new DSLShallow(CollateralManagement.DSL01);
         String result = advRenderer.render(dsl);
-        System.out.println("dsl simple    :    " + result);
+        System.out.println("dsl shallow   :    " + result);
         
         assertTrue( ("<div style=\"background-color:lightblue;\">Directly Secured Loan<table>"
         		+ "<tr><td>Credit contract nr</td><td>1056201613067</td></tr>"
@@ -66,6 +68,29 @@ public class AdvancedRendererTest {
         		+ "<tr><td>Limit</td><td>9737 RON</td></tr>"
         		+ "<tr><td>Risk value</td><td>9737 RON</td></tr>"
         		+ "<tr><td>Covered amount</td><td>5 RON</td></tr></table></div>").equals(result) );
+    }
+	
+
+	@Test
+    public void renderDSL() {
+        DSLRepresentation dsl = new DSLFull(CollateralManagement.DSL01);
+        String result = advRenderer.render(dsl);
+        System.out.println("dsl full      :    " + result);
+        
+        assertTrue( (result).equals(result) );
+    }
+	
+	@Test
+    public void renderSummary() {
+		SummaryPage sumPage = new SummaryPage();
+		sumPage.addDSL(CollateralManagement.DSL01);
+		sumPage.addDSL(CollateralManagement.DSL02);
+		sumPage.addDSL(CollateralManagement.DSL03);
+        String result = advRenderer.render(sumPage);
+        System.out.println("summary page  :    " + result);
+        
+        assertTrue( ("<div>Summary Page | Search: <input value=\"\" type=\"text\"/><input value=\"Find\" type=\"button\"/><br/><div style=\"display: flex; flex-wrap: wrap; \"><div style=\"background-color: lightblue; width: 500px; margin: 20px;\">Directly Secured Loan<table><tr><td>Credit contract nr</td><td>1056201613067</td></tr><tr><td>Account ID</td><td>Romania_BCR___000074169</td></tr><tr><td>Loan name</td><td>SELTESTLOAN01</td></tr><tr><td>Limit</td><td>9737 RON</td></tr><tr><td>Risk value</td><td>9737 RON</td></tr><tr><td>Covered amount</td><td>5 RON</td></tr></table><table style=\"border: solid black 1px;\"><tr><td>Collateral ID</td><td>20170223BCR_01_00012345</td></tr><tr><td>Allocated value</td><td>5 RON</td></tr><tr><td>Backing asset</td><td>988 - 988 - 2.3.1. Standard production machinery</td></tr><tr><td>Asset valuation rate</td><td>50 %</td></tr><tr><td>Base value of asset</td><td>10 RON</td></tr><tr><td>Acceptable value</td><td>5 RON</td></tr></table><table style=\"border: solid black 1px;\"><tr><td>Collateral ID</td><td>20170223BCR_02_00012345</td></tr><tr><td>Allocated value</td><td>0 RON</td></tr><tr><td>Backing asset</td><td>848 - 848 - 4.3. Gold</td></tr><tr><td>Asset valuation rate</td><td>75 %</td></tr><tr><td>Base value of asset</td><td>0 RON</td></tr><tr><td>Acceptable value</td><td>0 RON</td></tr></table></div><div style=\"background-color: lightblue; width: 500px; margin: 20px;\">Directly Secured Loan<table><tr><td>Credit contract nr</td><td></td></tr><tr><td>Account ID</td><td>Romania_BCR___000092343</td></tr><tr><td>Loan name</td><td>NEW LOAN</td></tr><tr><td>Limit</td><td>30000 EUR</td></tr><tr><td>Risk value</td><td>30000 EUR</td></tr><tr><td>Covered amount</td><td>0 EUR</td></tr></table><table style=\"border: solid black 1px;\"><tr><td>Collateral ID</td><td>20170425BCR_03_00012345</td></tr><tr><td>Allocated value</td><td>0 RON</td></tr><tr><td>Backing asset</td><td>848 - 848 - 4.3. Gold</td></tr><tr><td>Asset valuation rate</td><td>75 %</td></tr><tr><td>Base value of asset</td><td>4111367 RON</td></tr><tr><td>Acceptable value</td><td>3083525 RON</td></tr></table></div><div style=\"background-color: lightblue; width: 500px; margin: 20px;\">Directly Secured Loan<table><tr><td>Credit contract nr</td><td>191384497449</td></tr><tr><td>Account ID</td><td>Romania_BCR___000074164</td></tr><tr><td>Loan name</td><td>SELTESTLOAN01</td></tr><tr><td>Limit</td><td>2118 RON</td></tr><tr><td>Risk value</td><td>2118 RON</td></tr><tr><td>Covered amount</td><td>2118 RON</td></tr></table><table style=\"border: solid black 1px;\"><tr><td>Collateral ID</td><td>20170223BCR_04_00012345</td></tr><tr><td>Allocated value</td><td>2118 RON</td></tr><tr><td>Backing asset</td><td>848 - 848 - 4.3. Gold</td></tr><tr><td>Asset valuation rate</td><td>75 %</td></tr><tr><td>Base value of asset</td><td>4111367 RON</td></tr><tr><td>Acceptable value</td><td>3083525 RON</td></tr></table></div></div></div>")
+        		.equals(result) );
     }
 
 }

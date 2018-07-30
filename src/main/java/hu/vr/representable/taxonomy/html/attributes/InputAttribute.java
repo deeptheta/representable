@@ -6,7 +6,8 @@ public interface InputAttribute extends HtmlAttribute {
 	public enum DomainElement implements InputAttribute {
 		id,
 		value,
-		type;
+		type,
+		style;
 	}
 	
 	public enum Domain implements IsAttributeDomain<InputAttribute> {

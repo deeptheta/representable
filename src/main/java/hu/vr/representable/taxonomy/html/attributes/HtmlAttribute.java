@@ -11,7 +11,8 @@ public interface HtmlAttribute extends Attribute {
 		href,
 		src,
 		width,
-		height;
+		height,
+		style;
 	}
 	
 	public enum Domain implements IsAttributeDomain<HtmlAttribute> {

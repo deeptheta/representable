@@ -5,6 +5,9 @@ import hu.vr.representable.taxonomy.IsTagDomain;
 public interface HtmlContainerTag extends HtmlTag {
 	public enum DomainElement implements HtmlContainerTag{
 		div,
+		table,
+		tr,
+		td,
 		p,
 		a;
 	}

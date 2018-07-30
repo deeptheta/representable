@@ -6,7 +6,8 @@ public interface HtmlContainerAttribute extends HtmlAttribute {
 	public enum DomainElement implements HtmlContainerAttribute {
 		id,
 		width,
-		height;
+		height,
+		style;
 	}
 	
 	public enum Domain implements IsAttributeDomain<HtmlContainerAttribute> {

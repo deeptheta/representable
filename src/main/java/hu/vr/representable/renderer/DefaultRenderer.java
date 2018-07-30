@@ -5,6 +5,7 @@ import java.util.Map.Entry;
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.XmlRepresentableContainer;
 import hu.vr.representable.taxonomy.AttributeValue;
+import hu.vr.representable.taxonomy.Tag;
 
 public class DefaultRenderer extends AbstractRenderer {
 
@@ -117,13 +118,18 @@ public class DefaultRenderer extends AbstractRenderer {
 		}
 	}
 
-	private boolean isCompactTag(XmlRepresentable<?,?> xmlRepr) {
+	protected boolean isCompactTag(XmlRepresentable<?,?> xmlRepr) {
 		return xmlRepr.getContent()==null;
 	}
 	
-	private boolean isCompactTag(XmlRepresentableContainer<?,?,?,?> xmlReprCont) {
+	protected boolean isCompactTag(XmlRepresentableContainer<?,?,?,?> xmlReprCont) {
 		return xmlReprCont.getContent()==null 
 				&& (xmlReprCont.getChildren()==null || xmlReprCont.getChildren().isEmpty());
+	}
+	
+	protected boolean elementHasTag(XmlRepresentable<?,?> element, Tag tag) {
+		return element!=null && tag!=null && element.getTag()!=null
+				&& tag.toString().equals( element.getTag().toString() );
 	}
 
 }

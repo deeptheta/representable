@@ -10,6 +10,7 @@ public interface HtmlTag extends Tag {
 		br,
 		hr,
 		div,
+		table,
 		p,
 		a;
 	}

@@ -4,10 +4,19 @@ import java.util.Map.Entry;
 
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.XmlRepresentableContainer;
+import hu.vr.representable.factory.RepresentableFactory;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.Tag;
 
 public class DefaultRenderer extends AbstractRenderer {
+
+	public DefaultRenderer() {
+		super();
+	}
+	
+	public DefaultRenderer(RepresentableFactory factory) {
+		super(factory);
+	}
 
 	@Override
 	public String render(Object object) {
@@ -69,15 +78,19 @@ public class DefaultRenderer extends AbstractRenderer {
 		StringBuilder sb = new StringBuilder();
 		appendOpeningTag(sb, xmlReprCont);
 		if(!isCompactTag(xmlReprCont)) {
+			increaseDepth();
 			sb.append(renderContentOnly(xmlReprCont));
 			for(XmlRepresentable<?,?> child : xmlReprCont.getChildren()) {
 				sb.append(child.acceptRenderer(this));
 			}
+			decreaseDepth();
 			appendClosingTag(sb, xmlReprCont);
 		}
 		return sb.toString();
 	}
 	
+	
+
 	protected void appendOpeningTag(StringBuilder sb, XmlRepresentable<?,?> xmlRepr) {
 		appendBeginningOfOpeningTag(sb, xmlRepr);
 		if(isCompactTag(xmlRepr)) {
@@ -130,6 +143,20 @@ public class DefaultRenderer extends AbstractRenderer {
 	protected boolean elementHasTag(XmlRepresentable<?,?> element, Tag tag) {
 		return element!=null && tag!=null && element.getTag()!=null
 				&& tag.toString().equals( element.getTag().toString() );
+	}
+	
+	/**
+	 * Hook for subclasses
+	 */
+	protected void increaseDepth() {
+		/* noop */
+	}
+	
+	/**
+	 * Hook for subclasses
+	 */
+	protected void decreaseDepth() {
+		/* noop */
 	}
 
 }

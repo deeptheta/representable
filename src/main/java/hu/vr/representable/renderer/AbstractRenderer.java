@@ -1,17 +1,18 @@
 package hu.vr.representable.renderer;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Function;
-
 import hu.vr.representable.XmlRepresentable;
+import hu.vr.representable.factory.RepresentableFactory;
 import hu.vr.representable.taxonomy.Attribute;
 import hu.vr.representable.taxonomy.Tag;
 
 public abstract class AbstractRenderer implements RendererService {
 	
-	private final Map<Class<?>, Function<Object, XmlRepresentable<? extends Tag, ? extends Attribute>>> wrapperFactoryMethods = 
-		new HashMap<Class<?>, Function<Object, XmlRepresentable<? extends Tag, ? extends Attribute>>>();
+	private RepresentableFactory factory = null;
+	
+	public AbstractRenderer() {	}
+	public AbstractRenderer(RepresentableFactory factory) {
+		this.factory = factory;
+	}
 
 	@Override
 	public String render(Object anyObject) {
@@ -19,13 +20,15 @@ public abstract class AbstractRenderer implements RendererService {
 			return "";	// nothing default
 		}
 		
-		Function<Object, XmlRepresentable<? extends Tag, ? extends Attribute>> f = wrapperFactoryMethods.get(anyObject.getClass());
-		if(f!=null) {
-			return f.apply(anyObject).acceptRenderer(this);
+		XmlRepresentable<? extends Tag, ? extends Attribute> representation = null;
+		if(this.factory!=null) {
+			representation = factory.getRepresentationOf(anyObject);
+			if(representation!=null) {
+				return representation.acceptRenderer(this);
+			}
 		}
 		
 		return "";		// base default
 	}
-
-
+	
 }

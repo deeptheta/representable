@@ -2,6 +2,7 @@ package org.user.renderer;
 
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.XmlRepresentableContainer;
+import hu.vr.representable.factory.RepresentableFactory;
 import hu.vr.representable.renderer.DefaultRenderer;
 import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;
 
@@ -13,6 +14,14 @@ import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;
  */
 public class AdvancedRenderer extends DefaultRenderer {
 	
+	public AdvancedRenderer() {
+		super();
+	}
+
+	public AdvancedRenderer(RepresentableFactory factory) {
+		super(factory);
+	}
+
 	@Override
 	public String render(XmlRepresentableContainer<?,?,?,?> container) {
 		if(elementHasTag(container, HtmlContainerTag.DomainElement.table)) {

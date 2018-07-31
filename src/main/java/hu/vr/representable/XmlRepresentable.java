@@ -2,7 +2,6 @@ package hu.vr.representable;
 
 import java.util.Map;
 
-import hu.vr.representable.renderer.RendererService;
 import hu.vr.representable.taxonomy.Attribute;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.Tag;

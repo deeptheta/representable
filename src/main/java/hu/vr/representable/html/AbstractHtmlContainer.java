@@ -1,7 +1,7 @@
 package hu.vr.representable.html;
 
+import hu.vr.representable.RendererService;
 import hu.vr.representable.XmlRepresentableContainer;
-import hu.vr.representable.renderer.RendererService;
 import hu.vr.representable.taxonomy.html.attributes.HtmlAttribute;
 import hu.vr.representable.taxonomy.html.attributes.HtmlContainerAttribute;
 import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;

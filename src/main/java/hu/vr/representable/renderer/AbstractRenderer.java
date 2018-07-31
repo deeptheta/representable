@@ -1,5 +1,6 @@
 package hu.vr.representable.renderer;
 
+import hu.vr.representable.RendererService;
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.context.RepresentableContext;
 import hu.vr.representable.taxonomy.Attribute;

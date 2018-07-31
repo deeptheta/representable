@@ -1,7 +1,5 @@
-package hu.vr.representable.renderer;
+package hu.vr.representable;
 
-import hu.vr.representable.XmlRepresentable;
-import hu.vr.representable.XmlRepresentableContainer;
 import hu.vr.representable.taxonomy.Attribute;
 import hu.vr.representable.taxonomy.Tag;
 

@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import hu.vr.representable.RendererService;
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.example.model.Collateral;
 import hu.vr.representable.example.model.DirectlySecuredLoan;
 import hu.vr.representable.html.AbstractHtmlContainer;
-import hu.vr.representable.renderer.RendererService;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.TextContent;
 import hu.vr.representable.taxonomy.html.attributes.HtmlAttribute;

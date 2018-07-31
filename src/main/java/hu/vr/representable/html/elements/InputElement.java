@@ -3,8 +3,8 @@ package hu.vr.representable.html.elements;
 import java.util.HashMap;
 import java.util.Map;
 
+import hu.vr.representable.RendererService;
 import hu.vr.representable.XmlRepresentable;
-import hu.vr.representable.renderer.RendererService;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.TextContent;
 import hu.vr.representable.taxonomy.html.attributes.InputAttribute;

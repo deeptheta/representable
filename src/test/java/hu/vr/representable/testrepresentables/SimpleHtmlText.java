@@ -2,13 +2,13 @@ package hu.vr.representable.testrepresentables;
 
 import java.util.Map;
 
-import hu.vr.representable.html.AbstractHtmlLeaf;
+import hu.vr.representable.html.AbstractHtmlElement;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.TextContent;
 import hu.vr.representable.taxonomy.html.attributes.HtmlAttribute;
 import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
-public class SimpleHtmlText extends AbstractHtmlLeaf {
+public class SimpleHtmlText extends AbstractHtmlElement {
 
 	@Override
 	public HtmlTag getTag() {

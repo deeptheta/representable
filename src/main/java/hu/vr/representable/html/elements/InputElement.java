@@ -11,9 +11,7 @@ import hu.vr.representable.taxonomy.html.attributes.InputAttribute;
 import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
 /**
- * Convenience class for extension: represents an [input ... /] element of any type (text, password, button, etc).
- * @author Viktor Remeli
- *
+ * Represents an [input ... /] element of any type (text, password, button, etc).
  */
 public abstract class InputElement implements XmlRepresentable<HtmlTag, InputAttribute> {
 	

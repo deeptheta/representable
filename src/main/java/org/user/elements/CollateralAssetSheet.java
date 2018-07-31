@@ -17,10 +17,15 @@ import hu.vr.representable.taxonomy.html.attributes.HtmlContainerAttribute;
 import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;
 import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
+/**
+ * Representation of a collateral including its backing asset.
+ * @see AbstractHtmlContainer
+ *
+ */
 public class CollateralAssetSheet extends AbstractHtmlContainer {
 	
 	private final Collateral collateral;
-	Map<HtmlContainerAttribute, AttributeValue> attributes = new HashMap<>();
+	private Map<HtmlContainerAttribute, AttributeValue> attributes = new HashMap<>();
 	
 	public CollateralAssetSheet(Collateral collateral) {
 		super();

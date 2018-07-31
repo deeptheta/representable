@@ -2,15 +2,13 @@ package org.user.renderer;
 
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.XmlRepresentableContainer;
-import hu.vr.representable.factory.RepresentableFactory;
+import hu.vr.representable.context.RepresentableContext;
 import hu.vr.representable.renderer.DefaultRenderer;
 import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;
 
 /**
- * Can render <table> elements that contain non-<tr> elements as well.
- * Can render <tr> elements that contain non-<td> elements as well.
- * @author Viktor Remeli
- *
+ * Can render [table] elements that contain non-[tr] elements as well.
+ * Can render [tr] elements that contain non-[td] elements as well.
  */
 public class AdvancedRenderer extends DefaultRenderer {
 	
@@ -18,7 +16,7 @@ public class AdvancedRenderer extends DefaultRenderer {
 		super();
 	}
 
-	public AdvancedRenderer(RepresentableFactory factory) {
+	public AdvancedRenderer(RepresentableContext factory) {
 		super(factory);
 	}
 

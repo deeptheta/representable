@@ -1,6 +1,12 @@
 package hu.vr.representable.taxonomy;
 
+/**
+ * An arbitrary XML tag with valid syntax.
+ */
 public interface Tag {
+	/**
+	 * Simple domain element holder. Can only be created through factory methods that handle validation.
+	 */
 	public static final class DomainElement implements Tag{
 		private final String tagName;
 		private DomainElement(String tagName){
@@ -12,6 +18,9 @@ public interface Tag {
 		}
 	}
 	
+	/**
+	 * Validating Tag factory.
+	 */
 	public static Tag tagName(String tagName) {
 		if(tagName==null) {
 			return null;
@@ -19,6 +28,14 @@ public interface Tag {
 		return new DomainElement(tagName.replaceAll("[^a-zA-Z0-9_:.]","").replaceFirst("^[^a-zA-Z_:]*", ""));
 	}
 	
+	/**
+	 * Validating Tag factory for creation of (usually Tag subclass)
+	 * domain instances belonging to a given Tag subdomain (or any domain that should be validated as a Tag).
+	 * 
+	 * @param tag name to search for
+	 * @param subdomain of possible tags
+	 * @return subclass of Tag (or any domain that should be validated as a Tag)
+	 */
 	public static <T> T tagName(String tagName, IsDomain<T> domain) {
 		if(tagName==null) {
 			return null;

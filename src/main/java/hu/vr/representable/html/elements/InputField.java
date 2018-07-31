@@ -3,6 +3,9 @@ package hu.vr.representable.html.elements;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.html.attributes.InputAttribute;
 
+/**
+ * Is an input field UI element.
+ */
 public class InputField extends InputElement {
 	
 	public InputField(String defaultValue) {

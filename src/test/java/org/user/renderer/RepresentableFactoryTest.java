@@ -10,23 +10,23 @@ import org.user.model.Collateral;
 import org.user.model.DirectlySecuredLoan;
 import org.user.system.CollateralManagement;
 
-import hu.vr.representable.factory.RepresentableFactory;
+import hu.vr.representable.context.RepresentableContext;
 import hu.vr.representable.html.elements.InputButton;
 
 public class RepresentableFactoryTest {
 	
-	private final RepresentableFactory reprMapping = new RepresentableFactory();
-	private final AdvancedRenderer advRenderer = new AdvancedRenderer(reprMapping);
+	private final RepresentableContext context = new RepresentableContext();
+	private final AdvancedRenderer advRenderer = new AdvancedRenderer(context);
 	
 	/**
 	 * Ideally, the representation mapping initialization will be done
-	 * by annotations (e.g. @Represents(...) or @RepresentedBy(...)) in the future.
+	 * by annotations on the Representation classes (e.g. @Represents(...)) in the future.
 	 */
 	@Before
-	public void initTest() {
-		reprMapping.getFactoryMethods().put(String.class, x -> new InputButton(String.class.cast(x)));
-		reprMapping.getFactoryMethods().put(Collateral.class, x -> new CollateralAssetSheet(Collateral.class.cast(x)));
-		reprMapping.getFactoryMethods().put(DirectlySecuredLoan.class, x -> new DSLFull(DirectlySecuredLoan.class.cast(x)));
+	public void initContext() {
+		context.getFactoryMethods().put(String.class, x -> new InputButton(String.class.cast(x)));
+		context.getFactoryMethods().put(Collateral.class, x -> new CollateralAssetSheet(Collateral.class.cast(x)));
+		context.getFactoryMethods().put(DirectlySecuredLoan.class, x -> new DSLFull(DirectlySecuredLoan.class.cast(x)));
 	}
 	
 	@Test

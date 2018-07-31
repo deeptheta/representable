@@ -3,6 +3,9 @@ package hu.vr.representable.taxonomy.html.attributes;
 import hu.vr.representable.taxonomy.Attribute;
 import hu.vr.representable.taxonomy.IsAttributeDomain;
 
+/**
+ * Domain definition of valid html attributes.
+ */
 public interface HtmlAttribute extends Attribute {
 	public enum DomainElement implements HtmlAttribute {
 		id,

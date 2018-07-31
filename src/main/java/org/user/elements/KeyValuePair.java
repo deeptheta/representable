@@ -12,6 +12,9 @@ import hu.vr.representable.taxonomy.html.attributes.HtmlAttribute;
 import hu.vr.representable.taxonomy.html.attributes.HtmlContainerAttribute;
 import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
+/**
+ * A record representation type with two fields (columns): key and value.
+ */
 public class KeyValuePair extends RecordElement {
 	
 	private final List<XmlRepresentable<? extends HtmlTag, ? extends HtmlAttribute>> children = new ArrayList<>();

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import hu.vr.representable.AbstractXmlContainer;
-import hu.vr.representable.AbstractXmlLeaf;
+import hu.vr.representable.AbstractXmlElement;
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.taxonomy.Attribute;
 import hu.vr.representable.taxonomy.AttributeValue;
@@ -14,8 +14,8 @@ import hu.vr.representable.taxonomy.TextContent;
 
 public class CompositeXmlTag extends AbstractXmlContainer {
 	
-	private AbstractXmlLeaf child01 = new SimpleXmlTag();
-	private AbstractXmlLeaf child02 = new SimpleTextLeaf();
+	private AbstractXmlElement child01 = new SimpleXmlTag();
+	private AbstractXmlElement child02 = new SimpleTextLeaf();
 	
 	@Override
 	public List<XmlRepresentable<? extends Tag, ? extends Attribute>> getChildren() {

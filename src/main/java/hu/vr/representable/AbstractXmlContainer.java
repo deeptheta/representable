@@ -5,9 +5,7 @@ import hu.vr.representable.taxonomy.Attribute;
 import hu.vr.representable.taxonomy.Tag;
 
 /**
- * Convenience class for extension.
- * @author Viktor Remeli
- *
+ * @see XmlRepresentableContainer
  */
 public abstract class AbstractXmlContainer implements XmlRepresentableContainer<Tag, Attribute, Tag, Attribute> {
 	@Override

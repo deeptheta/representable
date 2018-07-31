@@ -4,17 +4,25 @@ import java.util.Map.Entry;
 
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.XmlRepresentableContainer;
-import hu.vr.representable.factory.RepresentableFactory;
+import hu.vr.representable.context.RepresentableContext;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.Tag;
 
+/**
+ * XML renderer with support for standard &lt;...&gt;...&lt;/...&gt; tag syntax and compact &lt;.../&gt; tags.
+ * Whitespaces are minified, but support for pretty-printing with newlines and indentations
+ * is provided in the form of hooks (overrideable protected methods) for subclasses.
+ */
 public class DefaultRenderer extends AbstractRenderer {
 
 	public DefaultRenderer() {
 		super();
 	}
-	
-	public DefaultRenderer(RepresentableFactory factory) {
+
+	/**
+	 * {@inheritDoc AbstractRenderer#AbstractRenderer(RepresentableContext)}
+	 */
+	public DefaultRenderer(RepresentableContext factory) {
 		super(factory);
 	}
 
@@ -64,6 +72,9 @@ public class DefaultRenderer extends AbstractRenderer {
 		return xmlRepr.getContent()==null ? "" : xmlRepr.getContent().toString();
 	}
 	
+	/**
+	 * Render leaf tag.
+	 */
 	protected String renderTag(XmlRepresentable<?,?> xmlRepr) {		
 		StringBuilder sb = new StringBuilder();
 		appendOpeningTag(sb, xmlRepr);
@@ -74,6 +85,9 @@ public class DefaultRenderer extends AbstractRenderer {
 		return sb.toString();
 	}
 	
+	/**
+	 * Render container tag.
+	 */
 	protected String renderTag(XmlRepresentableContainer<?,?,?,?> xmlReprCont) {		
 		StringBuilder sb = new StringBuilder();
 		appendOpeningTag(sb, xmlReprCont);
@@ -88,8 +102,6 @@ public class DefaultRenderer extends AbstractRenderer {
 		}
 		return sb.toString();
 	}
-	
-	
 
 	protected void appendOpeningTag(StringBuilder sb, XmlRepresentable<?,?> xmlRepr) {
 		appendBeginningOfOpeningTag(sb, xmlRepr);
@@ -131,15 +143,26 @@ public class DefaultRenderer extends AbstractRenderer {
 		}
 	}
 
+	/**
+	 * @param xml element representation
+	 * @return Tag can be written in [.../] compact form.
+	 */
 	protected boolean isCompactTag(XmlRepresentable<?,?> xmlRepr) {
 		return xmlRepr.getContent()==null;
 	}
 	
+	/**
+	 * @param xml container element representation
+	 * @return Tag can be written in [.../] compact form.
+	 */
 	protected boolean isCompactTag(XmlRepresentableContainer<?,?,?,?> xmlReprCont) {
 		return xmlReprCont.getContent()==null 
 				&& (xmlReprCont.getChildren()==null || xmlReprCont.getChildren().isEmpty());
 	}
 	
+	/**
+	 * Tag equality check.
+	 */
 	protected boolean elementHasTag(XmlRepresentable<?,?> element, Tag tag) {
 		return element!=null && tag!=null && element.getTag()!=null
 				&& tag.toString().equals( element.getTag().toString() );

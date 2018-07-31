@@ -18,16 +18,13 @@ import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;
 import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
 /**
- * A representation of DirectlySecuredLoan, done by composition.
- * 
+ * A sketchy representation of DirectlySecuredLoan, done by composition.
+ * <br>
  * But it could equally well be done through inheritance
  * (extends DirectlySecuredLoan, bypassing AbstractHtmlContainer convenience class and implementing
- * XmlRepresentableContainer<HtmlContainerTag, HtmlContainerAttribute, HtmlTag, HtmlAttribute>).
- * 
- * @author Viktor Remeli
- *
+ * {@link hu.vr.representable.XmlRepresentableContainer}&lt;HtmlContainerTag, HtmlContainerAttribute, HtmlTag, HtmlAttribute&gt;).
  */
-public class DSLShallow extends AbstractHtmlContainer implements DSLRepresentation {
+public class DSLShallow extends AbstractHtmlContainer {
 	
 	private final DirectlySecuredLoan dsl;
 	private final List<XmlRepresentable<? extends HtmlTag, ? extends HtmlAttribute>> children = new ArrayList<>();

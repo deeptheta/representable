@@ -2,6 +2,9 @@ package hu.vr.representable.html.elements;
 
 import hu.vr.representable.taxonomy.TextContent;
 
+/**
+ * Is a label UI element.
+ */
 public class Label extends TextElement {
 
 	private final String text;

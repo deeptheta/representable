@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import hu.vr.representable.AbstractXmlLeaf;
+import hu.vr.representable.AbstractXmlElement;
 import hu.vr.representable.taxonomy.Attribute;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.Tag;
 import hu.vr.representable.taxonomy.TextContent;
 
-public class SimpleXmlTag extends AbstractXmlLeaf {
+public class SimpleXmlTag extends AbstractXmlElement {
 	
 	private final Map<String, String> attributes = new HashMap<>();
 	

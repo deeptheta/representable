@@ -5,11 +5,9 @@ import hu.vr.representable.taxonomy.Attribute;
 import hu.vr.representable.taxonomy.Tag;
 
 /**
- * Convenience class for extension.
- * @author Viktor Remeli
- *
+ * @see XmlRepresentable
  */
-public abstract class AbstractXmlLeaf implements XmlRepresentable<Tag, Attribute> {
+public abstract class AbstractXmlElement implements XmlRepresentable<Tag, Attribute> {
 	@Override
 	public String acceptRenderer(RendererService renderer) {
 		return renderer.render(this);

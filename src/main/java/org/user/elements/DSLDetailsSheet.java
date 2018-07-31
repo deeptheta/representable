@@ -15,6 +15,10 @@ import hu.vr.representable.taxonomy.html.attributes.HtmlContainerAttribute;
 import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;
 import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
+/**
+ * A key-value sheet representation giving an overview
+ * of the most important (header) details of a Directly Secured Loan. 
+ */
 public class DSLDetailsSheet extends AbstractHtmlContainer {
 	
 	private final DirectlySecuredLoan dsl;

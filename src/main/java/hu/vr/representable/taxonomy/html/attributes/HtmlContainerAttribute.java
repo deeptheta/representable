@@ -2,6 +2,9 @@ package hu.vr.representable.taxonomy.html.attributes;
 
 import hu.vr.representable.taxonomy.IsAttributeDomain;
 
+/**
+ * Domain definition of valid html container attributes.
+ */
 public interface HtmlContainerAttribute extends HtmlAttribute {
 	public enum DomainElement implements HtmlContainerAttribute {
 		id,

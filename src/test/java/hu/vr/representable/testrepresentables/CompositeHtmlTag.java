@@ -6,7 +6,7 @@ import java.util.Map;
 
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.html.AbstractHtmlContainer;
-import hu.vr.representable.html.AbstractHtmlLeaf;
+import hu.vr.representable.html.AbstractHtmlElement;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.TextContent;
 import hu.vr.representable.taxonomy.html.attributes.HtmlAttribute;
@@ -16,8 +16,8 @@ import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
 public class CompositeHtmlTag extends AbstractHtmlContainer {
 	
-	private AbstractHtmlLeaf child01 = new SimpleHtmlTag();
-	private AbstractHtmlLeaf child02 = new SimpleHtmlText();
+	private AbstractHtmlElement child01 = new SimpleHtmlTag();
+	private AbstractHtmlElement child02 = new SimpleHtmlText();
 
 	@Override
 	public HtmlContainerTag getTag() {

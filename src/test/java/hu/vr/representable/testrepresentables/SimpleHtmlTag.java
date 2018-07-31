@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import hu.vr.representable.html.AbstractHtmlLeaf;
+import hu.vr.representable.html.AbstractHtmlElement;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.TextContent;
 import hu.vr.representable.taxonomy.html.attributes.HtmlAttribute;
 import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
-public class SimpleHtmlTag extends AbstractHtmlLeaf {
+public class SimpleHtmlTag extends AbstractHtmlElement {
 	
 	private final Map<String, String> attributes = new HashMap<>();
 	

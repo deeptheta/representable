@@ -2,6 +2,9 @@ package hu.vr.representable.taxonomy.html.attributes;
 
 import hu.vr.representable.taxonomy.IsAttributeDomain;
 
+/**
+ * Domain definition of valid html input element attributes.
+ */
 public interface InputAttribute extends HtmlAttribute {
 	public enum DomainElement implements InputAttribute {
 		id,

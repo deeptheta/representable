@@ -4,9 +4,7 @@ import hu.vr.representable.html.AbstractHtmlContainer;
 import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;
 
 /**
- * Convenience class for extension: represents a [td]...[/td] field.
- * @author Viktor Remeli
- *
+ * Represents a [td]...[/td] field (usually found in a table).
  */
 public abstract class FieldElement extends AbstractHtmlContainer {
 

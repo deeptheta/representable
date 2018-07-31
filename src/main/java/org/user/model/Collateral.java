@@ -6,8 +6,6 @@ public class Collateral {
 	private final String currency;
 	private double allocatedVal;
 	
-	
-	
 	public Collateral(String uniqueIdPrefix, Asset asset, String currency, double allocatedVal) {
 		super();
 		this.uniqueId = uniqueIdPrefix + "_" + "00012345";// simplified for testing, TODO in reality: String.format("%08d", UUID.randomUUID().getMostSignificantBits()%100000000);

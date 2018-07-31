@@ -4,6 +4,9 @@ import org.user.model.Asset;
 import org.user.model.Collateral;
 import org.user.model.DirectlySecuredLoan;
 
+/**
+ * An imaginary Collateral Management system state snapshot.
+ */
 public class CollateralManagement {
 	public static final Asset ASSET01 = new Asset("988 - 988 - 2.3.1. Standard production machinery", "RON", 10.1, 0.5);
 	public static final Asset ASSET02 = new Asset("848 - 848 - 4.3. Gold", "RON", 0.0, 0.75);

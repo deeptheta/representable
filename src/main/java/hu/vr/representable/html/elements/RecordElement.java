@@ -5,9 +5,7 @@ import hu.vr.representable.taxonomy.TextContent;
 import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;
 
 /**
- * Convenience class for extension: represents a [tr]...[/tr] element.
- * @author Viktor Remeli
- *
+ * Represents a [tr]...[/tr] record (usually found in a table).
  */
 public abstract class RecordElement extends AbstractHtmlContainer {
 

@@ -2,11 +2,14 @@ package org.user.renderer;
 
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.XmlRepresentableContainer;
-import hu.vr.representable.factory.RepresentableFactory;
+import hu.vr.representable.context.RepresentableContext;
 import hu.vr.representable.renderer.DefaultRenderer;
 import hu.vr.representable.taxonomy.Attribute;
 import hu.vr.representable.taxonomy.Tag;
 
+/**
+ * This representation renderer generates newlines and indentation for human readability.
+ */
 public class PrettyPrintRenderer extends DefaultRenderer {
 	
 	private int depth = 0;
@@ -15,7 +18,7 @@ public class PrettyPrintRenderer extends DefaultRenderer {
 		super();
 	}
 
-	public PrettyPrintRenderer(RepresentableFactory factory) {
+	public PrettyPrintRenderer(RepresentableContext factory) {
 		super(factory);
 	}
 

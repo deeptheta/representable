@@ -14,6 +14,9 @@ import hu.vr.representable.taxonomy.html.attributes.HtmlContainerAttribute;
 import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;
 import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
+/**
+ * Is a CSS3 flexible-layout [div]...[/div] container UI element.
+ */
 public class FlexBox extends AbstractHtmlContainer {
 	
 	private static final String flexStyle = "display: flex; flex-wrap: wrap; ";
@@ -45,6 +48,9 @@ public class FlexBox extends AbstractHtmlContainer {
 		return null;
 	}
 	
+	/**
+	 * @param additional styling
+	 */
 	public void setStyle(String styleText) {
 		attributes.put(HtmlContainerAttribute.DomainElement.style, AttributeValue.attrValue(flexStyle+styleText));
 	}

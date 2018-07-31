@@ -5,9 +5,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import hu.vr.representable.AbstractXmlContainer;
-import hu.vr.representable.AbstractXmlLeaf;
+import hu.vr.representable.AbstractXmlElement;
 import hu.vr.representable.html.AbstractHtmlContainer;
-import hu.vr.representable.html.AbstractHtmlLeaf;
+import hu.vr.representable.html.AbstractHtmlElement;
 import hu.vr.representable.html.elements.InputElement;
 import hu.vr.representable.html.elements.InputField;
 import hu.vr.representable.testrepresentables.CompositeHtmlDeep;
@@ -35,7 +35,7 @@ public class DefaultRendererTest {
     
 	@Test
     public void renderSimpleXml() {
-        AbstractXmlLeaf xmlRepr = new SimpleXmlTag();
+        AbstractXmlElement xmlRepr = new SimpleXmlTag();
         String result = defRenderer.render(xmlRepr);
         System.out.println("simple xml    :    " + result);
 
@@ -47,7 +47,7 @@ public class DefaultRendererTest {
     
 	@Test
     public void renderSimpleXmlWithContent() {
-		AbstractXmlLeaf xmlRepr = new SimpleXmlTagWithContent();
+		AbstractXmlElement xmlRepr = new SimpleXmlTagWithContent();
         String result = defRenderer.render(xmlRepr);
         System.out.println("simple xml+txt:    " + result);
 
@@ -59,7 +59,7 @@ public class DefaultRendererTest {
     
 	@Test
     public void renderSimpleTextLeaf() {
-		AbstractXmlLeaf xmlRepr = new SimpleTextLeaf();
+		AbstractXmlElement xmlRepr = new SimpleTextLeaf();
         String result = defRenderer.render(xmlRepr);
         System.out.println("simple txtLeaf:    " + result);
 
@@ -96,7 +96,7 @@ public class DefaultRendererTest {
 	
 	@Test
     public void renderSimpleHtmlText() {
-		AbstractHtmlLeaf htmlRepr = new SimpleHtmlText();
+		AbstractHtmlElement htmlRepr = new SimpleHtmlText();
         String result = defRenderer.render(htmlRepr);
         System.out.println("simple htmlTxt:    " + result);
 
@@ -105,7 +105,7 @@ public class DefaultRendererTest {
 
 	@Test
     public void renderSimpleHtmlTag() {
-		AbstractHtmlLeaf htmlRepr = new SimpleHtmlTag();
+		AbstractHtmlElement htmlRepr = new SimpleHtmlTag();
         String result = defRenderer.render(htmlRepr);
         System.out.println("simple htmlTag:    " + result);
 

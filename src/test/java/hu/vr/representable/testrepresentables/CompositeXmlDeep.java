@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import hu.vr.representable.AbstractXmlContainer;
-import hu.vr.representable.AbstractXmlLeaf;
+import hu.vr.representable.AbstractXmlElement;
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.taxonomy.Attribute;
 import hu.vr.representable.taxonomy.AttributeValue;
@@ -18,8 +18,8 @@ public class CompositeXmlDeep extends AbstractXmlContainer {
 	
 	private final Map<String, String> attributes = new HashMap<>();
 	
-	private AbstractXmlLeaf child01 = new SimpleXmlTagWithContent();
-	private AbstractXmlLeaf child02 = new SimpleTextLeaf();
+	private AbstractXmlElement child01 = new SimpleXmlTagWithContent();
+	private AbstractXmlElement child02 = new SimpleTextLeaf();
 	private AbstractXmlContainer child03 = new CompositeXmlTag();
 	
 	public CompositeXmlDeep() {

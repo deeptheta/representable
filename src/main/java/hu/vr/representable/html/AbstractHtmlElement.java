@@ -6,11 +6,12 @@ import hu.vr.representable.taxonomy.html.attributes.HtmlAttribute;
 import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
 /**
- * Convenience class for extension.
- * @author Viktor Remeli
- *
+ * An HTML element allowing all html tags and attributes.
+ * Depending on the subclass, further taxonomical restrictions may apply.
+ * 
+ * @see XmlRepresentable
  */
-public abstract class AbstractHtmlLeaf implements XmlRepresentable<HtmlTag, HtmlAttribute> {
+public abstract class AbstractHtmlElement implements XmlRepresentable<HtmlTag, HtmlAttribute> {
 	@Override
 	public String acceptRenderer(RendererService renderer) {
 		return renderer.render(this);

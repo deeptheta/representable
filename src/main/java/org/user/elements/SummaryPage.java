@@ -12,6 +12,7 @@ import hu.vr.representable.html.AbstractHtmlContainer;
 import hu.vr.representable.html.elements.FlexBox;
 import hu.vr.representable.html.elements.InputButton;
 import hu.vr.representable.html.elements.InputField;
+import hu.vr.representable.html.elements.Label;
 import hu.vr.representable.html.elements.LineBreak;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.TextContent;
@@ -20,6 +21,9 @@ import hu.vr.representable.taxonomy.html.attributes.HtmlContainerAttribute;
 import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;
 import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
+/**
+ * Final summary page representing several Directly Secured Loans
+ */
 public class SummaryPage extends AbstractHtmlContainer {
 	
 	Map<HtmlContainerAttribute, AttributeValue> attributes = new HashMap<>();
@@ -27,6 +31,7 @@ public class SummaryPage extends AbstractHtmlContainer {
 	private final FlexBox flexBox = new FlexBox();
 	
 	public SummaryPage() {
+		children.add(new Label(" | Search: "));
 		children.add(new InputField(""));
 		children.add(new InputButton("Find"));
 		children.add(new LineBreak());
@@ -56,7 +61,7 @@ public class SummaryPage extends AbstractHtmlContainer {
 
 	@Override
 	public TextContent getContent() {
-		return TextContent.text("Summary Page | Search: ");
+		return TextContent.text("Summary Page");
 	}
 
 }

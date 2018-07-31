@@ -1,8 +1,8 @@
-package org.user.system;
+package hu.vr.representable.example.system;
 
-import org.user.model.Asset;
-import org.user.model.Collateral;
-import org.user.model.DirectlySecuredLoan;
+import hu.vr.representable.example.model.Asset;
+import hu.vr.representable.example.model.Collateral;
+import hu.vr.representable.example.model.DirectlySecuredLoan;
 
 /**
  * An imaginary Collateral Management system state snapshot.

@@ -1,4 +1,4 @@
-package org.user.model;
+package hu.vr.representable.example.model;
 
 public class Asset {
 	private final String description;

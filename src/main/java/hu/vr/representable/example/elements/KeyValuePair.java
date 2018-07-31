@@ -1,4 +1,4 @@
-package org.user.elements;
+package hu.vr.representable.example.elements;
 
 import java.util.ArrayList;
 import java.util.List;

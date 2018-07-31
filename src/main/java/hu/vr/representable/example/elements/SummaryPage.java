@@ -1,13 +1,12 @@
-package org.user.elements;
+package hu.vr.representable.example.elements;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.user.model.DirectlySecuredLoan;
-
 import hu.vr.representable.XmlRepresentable;
+import hu.vr.representable.example.model.DirectlySecuredLoan;
 import hu.vr.representable.html.AbstractHtmlContainer;
 import hu.vr.representable.html.elements.FlexBox;
 import hu.vr.representable.html.elements.InputButton;

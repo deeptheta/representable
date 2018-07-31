@@ -1,4 +1,4 @@
-package org.user.renderer;
+package hu.vr.representable.example.renderer;
 
 import hu.vr.representable.XmlRepresentable;
 import hu.vr.representable.XmlRepresentableContainer;

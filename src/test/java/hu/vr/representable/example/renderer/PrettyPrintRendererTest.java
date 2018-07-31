@@ -1,9 +1,10 @@
-package org.user.renderer;
+package hu.vr.representable.example.renderer;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import hu.vr.representable.example.renderer.PrettyPrintRenderer;
 import hu.vr.representable.testrepresentables.CompositeHtmlDeep;
 
 public class PrettyPrintRendererTest {

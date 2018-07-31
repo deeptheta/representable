@@ -1,14 +1,13 @@
-package org.user.elements;
+package hu.vr.representable.example.elements;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.user.model.Asset;
-import org.user.model.Collateral;
-
 import hu.vr.representable.XmlRepresentable;
+import hu.vr.representable.example.model.Asset;
+import hu.vr.representable.example.model.Collateral;
 import hu.vr.representable.html.AbstractHtmlContainer;
 import hu.vr.representable.taxonomy.AttributeValue;
 import hu.vr.representable.taxonomy.TextContent;

@@ -1,4 +1,4 @@
-package org.user.model;
+package hu.vr.representable.example.model;
 
 import java.util.HashSet;
 import java.util.Set;

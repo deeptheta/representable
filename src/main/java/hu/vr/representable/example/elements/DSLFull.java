@@ -1,13 +1,13 @@
-package org.user.elements;
+package hu.vr.representable.example.elements;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.user.model.DirectlySecuredLoan;
-
 import hu.vr.representable.XmlRepresentable;
+import hu.vr.representable.example.model.Collateral;
+import hu.vr.representable.example.model.DirectlySecuredLoan;
 import hu.vr.representable.html.AbstractHtmlContainer;
 import hu.vr.representable.renderer.RendererService;
 import hu.vr.representable.taxonomy.AttributeValue;
@@ -18,23 +18,30 @@ import hu.vr.representable.taxonomy.html.tags.HtmlContainerTag;
 import hu.vr.representable.taxonomy.html.tags.HtmlTag;
 
 /**
- * A sketchy representation of DirectlySecuredLoan, done by composition.
+ * A fully detailed representation of DirectlySecuredLoan, done by composition.
  * <br>
  * But it could equally well be done through inheritance
  * (extends DirectlySecuredLoan, bypassing AbstractHtmlContainer convenience class and implementing
  * {@link hu.vr.representable.XmlRepresentableContainer}&lt;HtmlContainerTag, HtmlContainerAttribute, HtmlTag, HtmlAttribute&gt;).
  */
-public class DSLShallow extends AbstractHtmlContainer {
+public class DSLFull extends AbstractHtmlContainer {
 	
 	private final DirectlySecuredLoan dsl;
-	private final List<XmlRepresentable<? extends HtmlTag, ? extends HtmlAttribute>> children = new ArrayList<>();
 	Map<HtmlContainerAttribute, AttributeValue> attributes = new HashMap<>();
-	
-	public DSLShallow(DirectlySecuredLoan dsl) {
+	private final List<XmlRepresentable<? extends HtmlTag, ? extends HtmlAttribute>> children = new ArrayList<>();
+		
+	public DSLFull(DirectlySecuredLoan dsl) {
 		super();
 		this.dsl = dsl;
 		children.add(new DSLDetailsSheet(this.dsl));
-		this.setStyle("background-color:lightblue;");
+		
+		if(dsl!=null && dsl.getCollaterals()!=null) {
+			for(Collateral coll : dsl.getCollaterals()) {
+				children.add(new CollateralAssetSheet(coll));
+			}
+		}
+		
+		this.setStyle("background-color: lightblue; width: 500px; margin: 20px;");
 	}
 	
 	public void setStyle(String styleCss) {

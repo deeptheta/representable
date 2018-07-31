@@ -1,16 +1,17 @@
-package org.user.renderer;
+package hu.vr.representable.example.renderer;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.user.elements.CollateralAssetSheet;
-import org.user.elements.DSLFull;
-import org.user.model.Collateral;
-import org.user.model.DirectlySecuredLoan;
-import org.user.system.CollateralManagement;
 
 import hu.vr.representable.context.RepresentableContext;
+import hu.vr.representable.example.elements.CollateralAssetSheet;
+import hu.vr.representable.example.elements.DSLFull;
+import hu.vr.representable.example.model.Collateral;
+import hu.vr.representable.example.model.DirectlySecuredLoan;
+import hu.vr.representable.example.renderer.AdvancedRenderer;
+import hu.vr.representable.example.system.CollateralManagement;
 import hu.vr.representable.html.elements.InputButton;
 
 public class RepresentableFactoryTest {

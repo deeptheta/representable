@@ -1,4 +1,4 @@
-package org.user.renderer;
+package hu.vr.representable.example.renderer;
 
 import static org.junit.Assert.assertTrue;
 
@@ -7,12 +7,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
-import org.user.elements.DSLFull;
-import org.user.elements.DSLShallow;
-import org.user.elements.SummaryPage;
-import org.user.system.CollateralManagement;
 
 import hu.vr.representable.XmlRepresentable;
+import hu.vr.representable.example.elements.DSLFull;
+import hu.vr.representable.example.elements.DSLShallow;
+import hu.vr.representable.example.elements.SummaryPage;
+import hu.vr.representable.example.renderer.AdvancedRenderer;
+import hu.vr.representable.example.system.CollateralManagement;
 import hu.vr.representable.html.AbstractHtmlContainer;
 import hu.vr.representable.html.elements.Label;
 import hu.vr.representable.taxonomy.AttributeValue;
